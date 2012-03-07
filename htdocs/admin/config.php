@@ -1,10 +1,11 @@
 <?
-/** These variables need to be configured for each installation of NZQUIZ. */
+/** These variables need to be configured for each installation of zedquiz. */
 $DB_CONNECTION = "dbname=nzquiz user=postgres password=postgres";
-$PROJECT_ROOT = "/Users/oliverbridgman/Desktop/NZQUIZ";
+$PROJECT_ROOT = "/Users/oliverbridgman/Desktop/zedquiz";
+$SMARTY = "/Users/oliverbridgman/Downloads/Smarty-3.1.8/libs";
 
 /** Things below this line probably do not need to be changed. */
-require_once "../../libs/Smarty.class.php";
+require_once "$SMARTY/Smarty.class.php";
 
 function getSmarty() {
     global $PROJECT_ROOT;
