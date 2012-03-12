@@ -5,7 +5,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 $db = getDb();
-$result = pg_query_params($db, 'SELECT id, first_name, last_name FROM agent WHERE username = $1 AND password = $2', array($username, $password));
+$result = pg_query_params($db, 'SELECT id, first_name, last_name FROM agent WHERE username = $1 AND password = crypt($2, password)', array($username, $password));
 $rows = pg_fetch_all($result);
 if (!$rows) {
   header("location: login.php");
