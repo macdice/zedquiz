@@ -1,3 +1,5 @@
-This is a work in progress
+This is a work in progress.
 
-Needs 'smarty'
+Needs 'smarty'.
+Needs PostgreSQL 9.1 or higher, including the contribs package for pgcrypto.
+In the database, you need to CREATE EXTENSION pgcrypto.
