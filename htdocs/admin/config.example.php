@@ -10,8 +10,8 @@ require_once "$SMARTY/Smarty.class.php";
 function getSmarty() {
     global $PROJECT_ROOT;
     $smarty = new Smarty();;
-    $smarty->setTemplateDir("$PROJECT_ROOT/templates/");
-    $smarty->setCompileDir("$PROJECT_ROOT/templates_c/");
+    $smarty->template_dir = "$PROJECT_ROOT/templates/";
+    $smarty->compile_dir = "$PROJECT_ROOT/templates_c/";
     return $smarty;
 }
 
