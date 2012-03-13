@@ -1,4 +1,14 @@
 <?
-require "bounce.php";
+require_once "config.php";
+require_once "bounce.php";
+
+$db = getDb();
+$results = pg_query_params($db, "SELECT b.id, b.display_name, b.company_name, b.updated, a.first_name, a.last_name
+                                   FROM business b JOIN agent a ON b.agent = a.id
+                                  ORDER BY b.display_name, b.company_name", array());
+
+
+$smarty = getSmarty();
+$smarty->assign("businesses", pg_fetch_all($results));
+$smarty->display("admin/business.tpl");
 ?>
-Hello this is the business page
