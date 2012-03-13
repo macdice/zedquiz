@@ -9,7 +9,7 @@
 </tr>
 <tr>
 <td>Name</td>
-<td><input name="name" type="text" value="{$name}"/></td>
+<td><input name="name" type="text" value="{$name|escape}"/></td>
 </tr>
 <tr>
 <td>Start date</td>
