@@ -13,6 +13,7 @@ function doDelete(id) {ldelim}
 <td>Start date</td>
 <td>End date</td>
 <td>Questions</td>
+<td>Last modified</td>
 </tr>
 {foreach from=$quizes item=quiz}
 <tr>
@@ -21,6 +22,7 @@ function doDelete(id) {ldelim}
 <td>{$quiz.start_date}</td>
 <td>{$quiz.end_date}</td>
 <td>{$quiz.questions}</td>
+<td>{$quiz.modified} by {$quiz.first_name} {$quiz.last_name}</td>
 <td>[ <a href="edit_quiz.php?id={$quiz.id}">Edit</a> | <a href="javascript:doDelete({$quiz.id});">Delete</a> ]</td>
 </tr>
 {/foreach}

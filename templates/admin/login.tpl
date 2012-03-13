@@ -21,6 +21,9 @@
 {if $mode == "retry"}
 <p>Authentication failure.  Please retry.</p>
 {/if}
+{if $mode == "toomanyfailures"}
+<p>Too many failures.  Goodbye.</p>
+{/if}
     </form>
   </body>
 </html>

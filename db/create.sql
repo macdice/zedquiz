@@ -7,9 +7,9 @@
        last_name text not null,
        date_of_birth date not null,
        location text not null,
+       last_login timestamptz not null,
        created timestamptz not null,
-       updated timestamptz not null,
-       last_seen timestamptz not null
+       modified timestamptz not null
 );
 
 CREATE TABLE agent (
@@ -18,10 +18,13 @@ CREATE TABLE agent (
        last_name text not null,
        email text not null,
        username text not null,
-       password text not null,
+       password_hash text not null,
+       login_failures integer,
+       last_login timestamptz not null,
+       active boolean not null,
        created timestamptz not null,
-       updated timestamptz not null,
-       last_seen timestamptz not null
+       modified timestamptz not null,
+       modified_by integer references agent(id)
 );
 
 CREATE TABLE region (
@@ -49,16 +52,18 @@ CREATE TABLE business (
        postal_city text not null,
        postal_postcode text not null,
        region integer not null references region(id),
-       agent integer not null references agent(id),
        created timestamptz not null,
-       updated timestamptz not null
+       modified timestamptz not null,
+       modified_by integer not null references agent(id)
 );
 
 CREATE TABLE quiz (
        id serial primary key,
        name text not null,
        start_date date not null,
-       end_date date not null
+       end_date date not null,
+       modified timestamptz not null,
+       modified_by integer not null references agent(id)
 );
 
 CREATE TABLE question (
@@ -67,6 +72,8 @@ CREATE TABLE question (
        business integer not null references business(id),
        body text not null,
        created timestamptz not null,
+       modified timestamptz not null,
+       modified_by integer not null references agent(id),
        primary key (quiz, id)
 );
 
@@ -75,7 +82,9 @@ CREATE TABLE possible_answer (
        quiz integer not null,
        question integer not null,
        body text not null,
-       correct boolean not null
+       correct boolean not null,
+       modified timestamp not null,
+       modified_by integer not null references agent(id)
 );
 
 ALTER TABLE possible_answer ADD CONSTRAINT possible_answer_question_fk FOREIGN KEY (quiz, question) REFERENCES question(quiz, id);
