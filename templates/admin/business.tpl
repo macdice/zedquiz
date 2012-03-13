@@ -1,4 +1,4 @@
-{include file="admin/header.tpl"}
+{include file="admin/header.tpl" section="businesses"}
 
 <table>
 <tr>

@@ -1,18 +1,18 @@
 <html>
 <head>
-<title>NZQUIZ ADMIN</title>
+<title>ZedQuiz Admin</title>
 </head>
 <body>
 <p>
-{$smarty.session.agent_first_name} {$smarty.session.agent_last_name}
+Logged in as {$smarty.session.agent_first_name} {$smarty.session.agent_last_name}
 |
-<a href="overview.php">Overview</a>
+{if $section == "overview"}<b>Overview</b>{else}<a href="overview.php">Overview</a>{/if}
 |
-<a href="business.php">Businesses</a>
+{if $section == "businesses"}<b>Businesses</b>{else}<a href="business.php">Businesses</a>{/if}
 |
-<a href="quiz.php">Quizes</a>
+{if $section == "quizes"}<b>Quizes</b>{else}<a href="quiz.php">Quizes</a>{/if}
 |
-<a href="agent.php">Agents</a>
+{if $section == "agents"}<b>Agents</b>{else}<a href="agent.php">Agents</a>{/if}
 |
 <a href="logout.php">Logout</a>
 </p>
