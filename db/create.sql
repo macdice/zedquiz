@@ -27,6 +27,8 @@ CREATE TABLE agent (
        modified_by integer references agent(id)
 );
 
+CREATE UNIQUE INDEX agent_username_idx ON agent(username);
+
 CREATE TABLE region (
        id serial primary key,
        name text not null
@@ -67,27 +69,26 @@ CREATE TABLE quiz (
 );
 
 CREATE TABLE question (
+       id serial primary key,
        quiz integer not null references quiz(id),
-       id integer not null,
+       sort integer not null,
        business integer not null references business(id),
        body text not null,
+       active boolean not null,
        created timestamptz not null,
        modified timestamptz not null,
-       modified_by integer not null references agent(id),
-       primary key (quiz, id)
+       modified_by integer not null references agent(id)
 );
 
 CREATE TABLE possible_answer (
        id serial primary key,
-       quiz integer not null,
-       question integer not null,
+       question integer not null references question(id),
        body text not null,
        correct boolean not null,
+       active boolean not null,
        modified timestamp not null,
        modified_by integer not null references agent(id)
 );
-
-ALTER TABLE possible_answer ADD CONSTRAINT possible_answer_question_fk FOREIGN KEY (quiz, question) REFERENCES question(quiz, id);
 
 CREATE TABLE participant_answer (
        participant integer not null references participant(id),
