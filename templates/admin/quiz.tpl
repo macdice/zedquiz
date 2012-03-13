@@ -1,9 +1,9 @@
 {include file="admin/header.tpl"}
 
 <script>
-function doDelete(id) {
+function doDelete(id) {ldelim}
     alert("Are you sure you want to delete quiz ID " + id + "?");
-}
+{rdelim}
 </script>
 
 <table>
