@@ -13,11 +13,11 @@
 </tr>
 <tr>
 <td>Start date</td>
-<td><input name="start_date" type="text" value="{$start_date}"/></td>
+<td>{html_select_date prefix="start_date_" field_order="DMY" start_year="2012" end_year="2022" time=$start_date}</td>
 </tr>
 <tr>
 <td>End date</td>
-<td><input name="end_date" type="text" value="{$end_date}"/></td>
+<td>{html_select_date prefix="end_date_" field_order="DMY" start_year="2012" end_year="2022" time=$end_date}</td>
 </tr>
 </table>
 <input type="submit" value="Save"/>

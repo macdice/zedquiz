@@ -4,8 +4,8 @@ require_once "bounce.php";
 
 $id = $_POST["id"];
 $name = $_POST["name"];
-$start_date = $_POST["start_date"];
-$end_date = $_POST["end_date"];
+$start_date = $_POST["start_date_Year"] . "-" . $_POST["start_date_Month"] . "-" . $_POST["start_date_Day"];
+$end_date   = $_POST["end_date_Year"]   . "-" . $_POST["end_date_Month"]   . "-" . $_POST["end_date_Day"];
 
 $db = getDb();
 if ($id == "NEW") {
