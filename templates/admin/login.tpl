@@ -18,6 +18,9 @@
 	<legend>Buttons</legend>
 	<label><input type="submit" value="Login"></label>
       </fieldset>
+{if $mode == "retry"}
+<p>Authentication failure.  Please retry.</p>
+{/if}
     </form>
   </body>
 </html>
