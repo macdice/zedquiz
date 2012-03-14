@@ -1,11 +1,5 @@
 {include file="admin/header.tpl" section="quizes"}
 
-<script>
-function doDelete(id) {ldelim}
-    alert("Are you sure you want to delete quiz ID " + id + "?");
-{rdelim}
-</script>
-
 <table>
 <tr>
 <td>ID</td>
@@ -23,7 +17,7 @@ function doDelete(id) {ldelim}
 <td>{$quiz.end_date}</td>
 <td>{$quiz.questions}</td>
 <td>{$quiz.modified} by {$quiz.first_name} {$quiz.last_name}</td>
-<td>[ <a href="edit_quiz.php?id={$quiz.id}">Edit</a> | <a href="javascript:doDelete({$quiz.id});">Delete</a> ]</td>
+<td>[ <a href="edit_quiz.php?id={$quiz.id}">Edit</a> | <a href="question.php?quiz={$quiz.id}">Questions</a> ]</td>
 </tr>
 {/foreach}
 </table>
